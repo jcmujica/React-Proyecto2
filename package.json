@@ -2,8 +2,10 @@
   "name": "proyecto2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jcmujica.github.io/Proyecto-React-2",
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -12,6 +14,8 @@
     "use-global-hook": "^0.1.7"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
