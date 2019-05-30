@@ -6,6 +6,7 @@ import {
   Switch
 } from "react-router-dom"
 import ListContainer from './containers/ListContainer/ListContainer'
+import EpisodeContainer from './containers/EpisodeContainer/EpisodeContainer'
 // const HouseTableContainer = lazy(() =>
 //   import("./containers/HouseTableContainer/index")
 //)
@@ -19,8 +20,8 @@ function Routes() {
         <Switch>
           <Suspense fallback={<h1>Loading...</h1>}>
             <Route exact path="/" component={Home} />
-            <Route exact path="/list" component={ListContainer} />
-            <Route exact path="/characters" component={Characters} />
+            <Route exact path="/list" component={EpisodeContainer} />
+            <Route exact path="/characters" component={ListContainer} />
             <Route exact path="/similar" component={Similar} />
             <Route exact path="/login" component={Login} />
             {/* <Route path="*" component={notFound404} /> */}

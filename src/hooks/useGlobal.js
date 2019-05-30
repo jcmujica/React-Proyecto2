@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 let listeners = [];
 let state = ({
   characters: [],
+  episodes: [],
   loading: true,
   infoPage: '',
   next: '',

@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+$primarycolor: #FFF;
+$secondarycolor: #373F47;
+
+body {
+  background-color: $primarycolor;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.NavBar {
+  background-color: $secondarycolor;
+  ul {
+    list-style-type: none;
+    font-weight: bold;
+    margin: 0;
+    li {
+      display: inline-block;
+      padding: 20px;
+      a {
+        text-decoration: none;
+        color: $primarycolor;
+        &:hover {
+          color: grey;
+        }
+        &:active {
+          color: grey;
+        }
+      }
+      
+    }
+  }
+}
+
+.episode-card {
+  color: $primarycolor;
+  margin: 50px;
+  padding: 20px;
+  max-width: 20%;
+  display: inline-block;
+  min-height: 200px;
+  min-width: 200px;
+  text-align: center;
+  background-color: $secondarycolor;
+  div {
+    padding: 5px 0;
+    // font-weight: bold;
+  }
+  button {
+    padding: 10px;
+    font-weight: bold;
+    margin: 10px;
+    border: none;
+    background-color: $primarycolor;
+  }
+}
+
+.character-card {
+  color: $primarycolor;
+  margin: 50px;
+  padding: 20px;
+  max-width: 20%;
+  display: inline-block;
+  min-height: 200px;
+  min-width: 200px;
+  text-align: center;
+  background-color: $secondarycolor;
+  div {
+    padding: 5px 0;
+    // font-weight: bold;
+  }
+  button {
+    padding: 10px;
+    font-weight: bold;
+    margin: 10px;
+    border: none;
+    background-color: $primarycolor;
+  }
+}

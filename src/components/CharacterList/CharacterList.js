@@ -71,18 +71,18 @@ const CharacterList = (props) => {
         <div>
         {loading && <div>Loading...</div>}
         {!loading && characters.map((character, index) => (
-            <div key={index} style={favoriteCharacters.includes(character.id) ? highlight : regular}>
+            <div key={index} className='character-card' style={favoriteCharacters.includes(character.id) ? highlight : regular}>
               <div>
-               id: {character.id}
+               ID: {character.id}
               </div>
               <div>
-               name: {character.name}
+               Name: {character.name}
               </div>
               <div>
-               species: {character.species}
+               Species: {character.species}
               </div>
               <div>
-               origin: {character.origin.name}
+               Origin: {character.origin.name}
               </div>
               <button onClick={() => toggleFavorites(character.id)}>Add to Favorites</button>
             </div>

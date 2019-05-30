@@ -2,16 +2,17 @@ import React, {useEffect} from 'react';
 import axios from 'axios'
 import useGlobal from '../../hooks/useGlobal'
 
-const CharacterList = (props) => {
+const EpisodeList = (props) => {
     const [globalState, setGlobalState] = useGlobal();
-    const { characters, loading, next, maxPage } = globalState
+    const { episodes, loading, next, maxPage } = globalState
     const {favoriteEpisodes,episodesWatched} = globalState.users
 
     useEffect(() => {
         const getApi = async () => {
           const response = await axios.get('https://rickandmortyapi.com/api/episode/')
+          console.log(response)
           setGlobalState({...globalState,
-            characters: [...globalState.characters, 
+            episodes: [...globalState.episodes, 
                 ...response.data.results],
             loading: false,
             ...globalState.infoPage,
@@ -25,7 +26,7 @@ const CharacterList = (props) => {
     const loadMore = async () => {
         const response = await axios.get(next)
         setGlobalState({...globalState,
-            characters: [...globalState.characters, 
+            episodes: [...globalState.episodes, 
             ...response.data.results],
             loading: false,
             ...globalState.infoPage,
@@ -36,20 +37,20 @@ const CharacterList = (props) => {
 
     const toggleFavorites = (id) => {
         console.log('added to favorites: ', id)
-        const alreadyFavorite = favoriteCharacters.includes(id)
-        console.log('favoriteCharacters',favoriteCharacters)
+        const alreadyFavorite = favoriteEpisodes.includes(id)
+        console.log('favoriteepisodes',favoriteEpisodes)
         if (!alreadyFavorite) {
             setGlobalState({...globalState,
                 users: {...globalState.users,
-                favoriteCharacters: [...globalState.users.favoriteCharacters,id]
+                favoriteEpisodes: [...globalState.users.favoriteEpisodes,id]
                 }
             })
         } else {
-            const withoutFavorite = favoriteCharacters.filter(el => el !== id)
+            const withoutFavorite = favoriteEpisodes.filter(el => el !== id)
             console.log('withoutFavorite', withoutFavorite)
             setGlobalState({...globalState,
                 users: {...globalState.users,
-                favoriteCharacters: withoutFavorite
+                favoriteEpisodes: withoutFavorite
                 }
             })
         }
@@ -70,21 +71,21 @@ const CharacterList = (props) => {
     return (
         <div>
         {loading && <div>Loading...</div>}
-        {!loading && characters.map((character, index) => (
-            <div key={index} style={favoriteCharacters.includes(character.id) ? highlight : regular}>
+        {!loading && episodes.map((episode, index) => (
+            <div className='episode-card' key={index} style={favoriteEpisodes.includes(episode.id) ? highlight : regular}>
               <div>
-               id: {character.id}
+               ID: {episode.id}
               </div>
               <div>
-               name: {character.name}
+               Name: {episode.name}
               </div>
               <div>
-               species: {character.species}
+               Air Date: {episode.air_date}
               </div>
               <div>
-               origin: {character.origin.name}
+               Episode: {episode.episode}
               </div>
-              <button onClick={() => toggleFavorites(character.id)}>Add to Favorites</button>
+              <button onClick={() => toggleFavorites(episode.id)}>Add to Favorites</button>
             </div>
           ))}
           {!loading && <button onClick={() => loadMore()}>Load More</button>}
@@ -93,4 +94,4 @@ const CharacterList = (props) => {
     );
 };
 
-export default CharacterList;
+export default EpisodeList;
