@@ -63,9 +63,12 @@ body {
   max-width: 20%;
   display: inline-block;
   min-height: 200px;
-  min-width: 200px;
+  width: 400px;
   text-align: center;
   background-color: $secondarycolor;
+  img {
+    width: 70px;
+  }
   div {
     padding: 5px 0;
     // font-weight: bold;

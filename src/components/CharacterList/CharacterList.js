@@ -24,6 +24,7 @@ const CharacterList = (props) => {
 
     const loadMore = async () => {
         const response = await axios.get(next)
+        console.log(response)
         setGlobalState({...globalState,
             characters: [...globalState.characters, 
             ...response.data.results],
@@ -75,6 +76,7 @@ const CharacterList = (props) => {
               <div>
                ID: {character.id}
               </div>
+              <img src={character.image} alt="name" />
               <div>
                Name: {character.name}
               </div>

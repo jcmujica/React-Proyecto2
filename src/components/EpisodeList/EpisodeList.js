@@ -85,6 +85,7 @@ const EpisodeList = (props) => {
               <div>
                Episode: {episode.episode}
               </div>
+              <a href={episode.url}>Episode URL</a>
               <button onClick={() => toggleFavorites(episode.id)}>Add to Favorites</button>
             </div>
           ))}
