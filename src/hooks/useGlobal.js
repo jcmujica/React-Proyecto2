@@ -1,24 +1,44 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 let listeners = [];
-let state = ({
+let state = {
   characters: [],
   episodes: [],
   loading: true,
-  infoPage: '',
-  next: '',
-  maxPage: '',
+  infoPage: "",
+  next: "",
+  maxPage: "",
   users: {
-    name: '',
-    email: '',
-    favoriteEpisodes: [],
-    episodesWatched: [],
-    favoriteCharacters: []}
-  })
+    "1": {
+      email: "dan@rm.com",
+      password: "123",
+      favoriteEpisodes: [4],
+      episodesWatched: [],
+      favoriteCharacters: []
+    },
+    "2": {
+      email: "ty@rm.com",
+      password: "123",
+      favoriteEpisodes: [],
+      episodesWatched: [],
+      favoriteCharacters: []
+    },
+    "3": {
+      email: "jon@rm.com",
+      password: "123",
+      favoriteEpisodes: [4, 1],
+      episodesWatched: [],
+      favoriteCharacters: []
+    }
+  },  
+  userList: ['1', '2', '3'],
+  loggedIn: 1,
+  error: null
+};
 
-const setState = (newState) => {
+const setState = newState => {
   state = { ...state, ...newState };
-  listeners.forEach((listener) => {
+  listeners.forEach(listener => {
     listener(state);
   });
 };
