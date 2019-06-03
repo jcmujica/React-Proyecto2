@@ -10,13 +10,15 @@ let state = {
   maxPage: "",
   users: {
     "1": {
+      name: "Daenerys",
       email: "dan@rm.com",
       password: "123",
-      favoriteEpisodes: [4],
+      favoriteEpisodes: [],
       episodesWatched: [],
       favoriteCharacters: []
     },
     "2": {
+      name: "Tyrion",
       email: "ty@rm.com",
       password: "123",
       favoriteEpisodes: [],
@@ -24,15 +26,16 @@ let state = {
       favoriteCharacters: []
     },
     "3": {
+      name: "Jon",
       email: "jon@rm.com",
       password: "123",
-      favoriteEpisodes: [4, 1],
+      favoriteEpisodes: [],
       episodesWatched: [],
       favoriteCharacters: []
     }
-  },  
-  userList: ['1', '2', '3'],
-  loggedIn: 1,
+  },
+  userList: ["1", "2", "3"],
+  loggedIn: null,
   error: null
 };
 

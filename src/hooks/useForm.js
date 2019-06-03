@@ -1,86 +1,62 @@
-import React, { useState } from 'react'
-import useGlobal from '../hooks/useGlobal'
+import React, { useState } from "react";
+import useGlobal from "../hooks/useGlobal";
 
 const useForm = (users, userList) => {
   const [values, setValues] = useState({
-    email: '',
-    password: ''
-  })
+    email: "",
+    password: ""
+  });
   const [globalState, setGlobalState] = useGlobal();
 
   const handleChange = event => {
-    const name = event.target.name
-    const value = event.target.value
+    const name = event.target.name;
+    const value = event.target.value;
 
     setValues({
       ...values,
       [name]: value
-    })
-  }
-    console.log(values)
-  
-    const handleSubmit = event => {
-    event.preventDefault()
+    });
+  };
+  console.log(values);
 
-    logIn(values.email, values.password)
-  }
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    logIn(values.email, values.password);
+  };
 
   const logIn = (email, password) => {
-    const userId = fakeLogin(email,password, users, userList)
-    const errorMessage = 'Email o password incorrecto'
-    console.log(userId)
+    const userId = fakeLogin(email, password, users, userList);
+    const errorMessage = "Email o password incorrecto";
+    console.log(userId);
     if (userId) {
       setGlobalState({
         ...globalState,
         loggedIn: userId,
         error: null
-      })
+      });
     } else {
       setGlobalState({
-      ...globalState,
-      loggedIn: null,
-      error: errorMessage
-    })
+        ...globalState,
+        loggedIn: null,
+        error: errorMessage
+      });
     }
-  }
+  };
 
   const fakeLogin = (email, password, users, userList) => {
     return userList.find(userId => {
       return (
-        users[userId].email === email &&
-        users[userId].password === password
-      )
-    })
-  }
-
-
-  
-    // const handleChange = (event) => {
-    //   const {
-    //     name,
-    //     value
-    //   } = event.target
-  
-    //   setValues({
-    //     ...values,
-    //     [name]: value
-    //   })
-    // }
-  
-
-  
-    // if (globalState.loggedIn) {
-    //   return <Redirect to='/' />
-    // }
-
-
-
+        users[userId].email === email && users[userId].password === password
+      );
+    });
+  };
 
   return {
     values,
     handleChange,
     handleSubmit
-  }
-}
+  };
+};
 
-export default useForm
+export default useForm;

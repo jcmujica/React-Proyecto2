@@ -4,21 +4,11 @@ import useGlobal from "../../hooks/useGlobal";
 
 const PrivateRoute = props => {
   const [globalState, setGlobalState] = useGlobal();
-  const {
-    component: Component,
-    // setUserId,
-    ...rest
-  } = props;
+  const { component: Component, ...rest } = props;
 
   const { loggedIn } = globalState;
 
   const userId = localStorage.getItem("userId");
-
-  // useEffect(() => {
-  //   if (userId) {
-  //     setUserId(userId)
-  //   }
-  // }, [])
 
   return (
     <Route

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import useGlobal from "../../hooks/useGlobal";
+import { Redirect, Route } from "react-router-dom";
 
 const RegisterUser = () => {
   const [values, setValues] = useState({
+    name: "",
     email: "",
     password: "",
     confirm: ""
   });
   const [globalState, setGlobalState] = useGlobal();
-  const { error, users, userList } = globalState;
+  const { error, users, userList, loggedIn } = globalState;
   var controller = new AbortController();
 
   useEffect(() => {
@@ -37,6 +39,7 @@ const RegisterUser = () => {
           users: {
             ...users,
             [userList.length + 1]: {
+              name: values.name,
               email: values.email,
               password: values.password,
               favoriteEpisodes: [],
@@ -45,7 +48,14 @@ const RegisterUser = () => {
             }
           },
           userList: [...userList, (userList.length + 1).toString()],
-          error: null
+          error: null,
+          loggedIn: userList.length + 1
+        });
+        setValues({
+          name: "",
+          email: "",
+          password: "",
+          confirm: ""
         });
       } else {
         const errorMessage = "This email is being used by another user";
@@ -64,12 +74,23 @@ const RegisterUser = () => {
       });
     }
   };
-
+  if (loggedIn) { return <Redirect to="/" />} else {
   return (
+
     <div>
+
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
-        <label for="email">Email</label>
+      <label htmlFor="name">Name</label>
+        <input
+          type="name"
+          name="name"
+          id="name"
+          onChange={handleChange}
+          value={values.name}
+          required
+        />
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
@@ -78,7 +99,7 @@ const RegisterUser = () => {
           value={values.email}
           required
         />
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
@@ -87,7 +108,7 @@ const RegisterUser = () => {
           value={values.password}
           required
         />
-        <label for="confirm">Confirm Password</label>
+        <label htmlFor="confirm">Confirm Password</label>
         <input
           type="password"
           name="confirm"
@@ -100,7 +121,7 @@ const RegisterUser = () => {
         <div>{error}</div>
       </form>
     </div>
-  );
+  )};
 };
 
 export default RegisterUser;

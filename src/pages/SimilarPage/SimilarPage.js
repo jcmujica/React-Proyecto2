@@ -1,10 +1,8 @@
-import React from 'react';
-import SimilarContainer from '../../containers/SimilarContainer/SimilarContainer'
+import React from "react";
+import SimilarContainer from "../../containers/SimilarContainer/SimilarContainer";
 
-const SimilarPage = (props) => {
-    return (
-        <SimilarContainer/>
-    );
+const SimilarPage = props => {
+  return <SimilarContainer />;
 };
 
 export default SimilarPage;

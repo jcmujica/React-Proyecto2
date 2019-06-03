@@ -57,12 +57,13 @@ const CharacterList = props => {
       const withoutFavorite = favoriteCharacters.filter(el => el !== id);
       setGlobalState({
         ...globalState,
-        users: { ...globalState.users, 
+        users: {
+          ...globalState.users,
           [loggedIn]: {
             ...globalState.users[loggedIn],
             favoriteCharacters: withoutFavorite
           }
-       }
+        }
       });
     }
   };
