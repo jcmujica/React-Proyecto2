@@ -49,6 +49,7 @@ const LogOut = () => {
 
 const Header = () => {
   const [globalState, setGlobalState] = useGlobal();
+  console.log(globalState)
   const { loggedIn } = globalState;
   return (
     <nav className="NavBar">

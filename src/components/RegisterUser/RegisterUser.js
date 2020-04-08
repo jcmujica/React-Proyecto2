@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useGlobal from "../../hooks/useGlobal";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const RegisterUser = () => {
   const [values, setValues] = useState({
@@ -74,54 +74,55 @@ const RegisterUser = () => {
       });
     }
   };
-  if (loggedIn) { return <Redirect to="/" />} else {
-  return (
+  if (loggedIn) { return <Redirect to="/" /> } else {
+    return (
 
-    <div>
+      <div>
 
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name</label>
-        <input
-          type="name"
-          name="name"
-          id="name"
-          onChange={handleChange}
-          value={values.name}
-          required
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          onChange={handleChange}
-          value={values.email}
-          required
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={handleChange}
-          value={values.password}
-          required
-        />
-        <label htmlFor="confirm">Confirm Password</label>
-        <input
-          type="password"
-          name="confirm"
-          id="confirm"
-          onChange={handleChange}
-          value={values.confirm}
-          required
-        />
-        <button action="submit">Register</button>
-        <div>{error}</div>
-      </form>
-    </div>
-  )};
+        <h1>Register</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Name</label>
+          <input
+            type="name"
+            name="name"
+            id="name"
+            onChange={handleChange}
+            value={values.name}
+            required
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={handleChange}
+            value={values.email}
+            required
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={handleChange}
+            value={values.password}
+            required
+          />
+          <label htmlFor="confirm">Confirm Password</label>
+          <input
+            type="password"
+            name="confirm"
+            id="confirm"
+            onChange={handleChange}
+            value={values.confirm}
+            required
+          />
+          <button action="submit">Register</button>
+          <div>{error}</div>
+        </form>
+      </div>
+    )
+  };
 };
 
 export default RegisterUser;

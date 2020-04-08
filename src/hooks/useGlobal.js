@@ -35,7 +35,7 @@ let state = {
     }
   },
   userList: ["1", "2", "3"],
-  loggedIn: null,
+  loggedIn: "2",
   error: null
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useGlobal from "../hooks/useGlobal";
 
 const useForm = (users, userList) => {
