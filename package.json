@@ -2,7 +2,6 @@
   "name": "proyecto2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jcmujica.github.io/Proyecto-React-2",
   "dependencies": {
     "axios": "^0.18.1",
     "gh-pages": "^2.0.1",
